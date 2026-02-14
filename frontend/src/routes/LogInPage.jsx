@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
 import "../App.css";
 import Register from "../components/Register";
+import { useNavigate } from "react-router-dom";
 
 const LogInPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [showRegister, setShowRegister] = useState(false);
+  const navigate = useNavigate();
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -18,6 +20,9 @@ const LogInPage = () => {
         password,
       });
       setMessage(res.data.message);
+      if (res.status === 200) {
+        navigate("/HomePage");
+      }
     } catch (err) {
       if (err.response) {
         setMessage(err.response.data.message);
@@ -27,21 +32,6 @@ const LogInPage = () => {
     }
   }
 
-  //const [message, setMessage] = useState("");
-
-  //useEffect(() => {
-  //  axios
-  //    .get("http://127.0.0.1:8000/api/hello/")
-  //    .then((res) => setMessage(res.data.message))
-  //    .catch((err) => console.error(err));
-  //}, []);
-
-  //return (
-  //  <div>
-  //    <h1>Welcome to login page!!!</h1>
-  //    <h2 className="font-bold underline">{message}</h2>
-  //  </div>
-  //);
   return (
     <div className="flex flex-row min-w-full h-[100vh] m-0 p-0">
       <div className="blue-background w-[50%] h-fill text-white flex flex-col justify-center items-center">
