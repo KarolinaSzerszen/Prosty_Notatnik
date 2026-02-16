@@ -1,6 +1,6 @@
 sticky_note_ikon:
 <a href="https://www.flaticon.com/free-icons/sticky-note" title="sticky-note icons">Sticky-note icons created by kornkun - Flaticon</a>
 
-
+x icons<a href="https://www.flaticon.com/free-icons/cross" title="cross icons">Cross icons created by riajulislam - Flaticon</a>
 
 python manage.py runserver

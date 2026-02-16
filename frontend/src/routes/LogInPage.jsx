@@ -4,6 +4,7 @@ import logo from "../assets/logo.png";
 import "../App.css";
 import Register from "../components/Register";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const LogInPage = () => {
   const [username, setUsername] = useState("");
@@ -11,6 +12,8 @@ const LogInPage = () => {
   const [message, setMessage] = useState("");
   const [showRegister, setShowRegister] = useState(false);
   const navigate = useNavigate();
+
+  const { login } = useAuth();
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -20,12 +23,13 @@ const LogInPage = () => {
         password,
       });
       setMessage(res.data.message);
+      login(res.data.access);
       if (res.status === 200) {
         navigate("/HomePage");
       }
     } catch (err) {
       if (err.response) {
-        setMessage(err.response.data.message);
+        setMessage("Invalid credentials");
       } else {
         setMessage("Network error");
       }

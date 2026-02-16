@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import User
 from django.contrib.auth.password_validation import validate_password
+from .models import Note
 
 class RegisterSerializer(serializers.ModelSerializer):
     passwordSecond = serializers.CharField(write_only=True)
@@ -26,5 +27,9 @@ class RegisterSerializer(serializers.ModelSerializer):
             )
             return user
                                    
-                               
+    
+class NoteSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = Note
+            fields = ["id", "title", "content", "created_at", "updated_at"]
             
