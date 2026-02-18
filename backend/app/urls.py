@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.contrib import admin
 from .views import hello
-from .views import  nip_lookup, RegisterView, get_notes, add_note, note_detail, list_users, DeleteOwnAccountView
+from .views import  nip_lookup, RegisterView, get_notes, add_note, note_detail, DeleteOwnAccountView
 from rest_framework_simplejwt.views import(   TokenObtainPairView,
     TokenRefreshView,
 )
@@ -26,7 +26,7 @@ urlpatterns = [
     path('notes/<int:note_id>/', note_detail, name='update_note or delete_note'),
     path('loginas/', include('loginas.urls')),
     path('admin/', admin.site.urls),
-    path('users/', list_users, name='list_users'),
+    #path('users/', list_users, name='list_users'),
     path('users/delete-me/', DeleteOwnAccountView.as_view(), name='delete_own_account')
    
 ]

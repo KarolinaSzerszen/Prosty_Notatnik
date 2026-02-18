@@ -134,19 +134,6 @@ def note_detail(request, note_id):
 
 
 
-
-
-
-User = get_user_model()
-
-@api_view(['GET'])
-@permission_classes([IsAdminUser])
-def list_users(request):
-    users = User.objects.all()
-    serializer = UserSerializer(users, many= True)
-    return Response(UserSerializer(users, many=True).data)
-
-
 User = get_user_model()
 
 class DeleteOwnAccountView(APIView):
@@ -160,3 +147,15 @@ class DeleteOwnAccountView(APIView):
             {"message": f"User {username} deleted successfully"}, status=status.HTTP_200_OK
 
         )
+
+
+
+#User = get_user_model()
+
+#@api_view(['GET'])
+#@permission_classes([IsAdminUser])
+#def list_users(request):
+#    users = User.objects.all()
+#    serializer = UserSerializer(users, many= True)
+#    return Response(UserSerializer(users, many=True).data)
+
