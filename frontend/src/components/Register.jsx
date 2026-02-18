@@ -56,10 +56,17 @@ const Register = ({ onClose, setShowRegister }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (!nip) {
+      setError("Include NIP");
+
+      return;
+    }
+
     if (password !== passwordSecond) {
       setError("Passwords don't match");
       return;
     }
+
     try {
       await axios.post("http://127.0.0.1:8000/api/register/", {
         nip,
@@ -75,6 +82,7 @@ const Register = ({ onClose, setShowRegister }) => {
       setSuccess(true);
     } catch (err) {
       console.log(err.response?.data);
+
       if (err.response?.status === 400) {
         setError("User already exists");
       } else {
