@@ -63,9 +63,10 @@ const Register = ({ onClose }) => {
     try {
       await axios.post("http://127.0.0.1:8000/api/register/", {
         nip,
-        name: form.name,
-        statusVat: form.statusVat,
-        workingAddress: form.workingAddress,
+        company_name: form.name,
+        status_vat: form.statusVat,
+        working_address: form.workingAddress,
+        regon: form.regon,
         username,
         password,
         passwordSecond,
@@ -83,7 +84,7 @@ const Register = ({ onClose }) => {
   }
 
   return success ? (
-    <div className="bg-white border-2 border-solid blue-border w-[90vw] p-60  sm:w-[70vw] lg:w-[60vw]  absolute top-[20%] left-[4%] sm:left-[12%] lg:left-[20%] m z-20 flex items-center justify-center ">
+    <div className="bg-white border-2 border-solid blue-border w-[90vw] p-60  sm:w-[70vw] lg:w-[60vw]  absolute top-[16%] left-[4%] sm:left-[12%] lg:left-[20%] m z-20 flex items-center justify-center ">
       <h2 className="blue-font text-xl">
         User created successfully! Click here to{" "}
         <span
@@ -95,7 +96,7 @@ const Register = ({ onClose }) => {
       </h2>
     </div>
   ) : (
-    <div className="bg-white border-2 border-solid blue-border w-[90vw]  sm:w-[70vw] lg:w-[60vw] absolute top-[10%] left-[4%] sm:left-[12%] lg:left-[20%] z-20  pb-10">
+    <div className="bg-white border-2 border-solid blue-border w-[90vw]  sm:w-[70vw] lg:w-[60vw] absolute top-[16%] left-[4%] sm:left-[12%] lg:left-[20%] z-20  pb-10">
       <form
         className="grid grid-cols-3  gap-4  m-10 mt-16 gap-y-10"
         onSubmit={handleSubmit}

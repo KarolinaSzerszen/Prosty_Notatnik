@@ -14,6 +14,7 @@ class User(AbstractUser):
     status_vat = models.CharField(max_length = 50, blank=True)
     regon = models.CharField(max_length=14, blank=True)
     working_address = models.CharField(max_length=255, blank=True)
+    company_name = models.CharField(max_length=255, blank=True)
 
 
 class Note(models.Model):
