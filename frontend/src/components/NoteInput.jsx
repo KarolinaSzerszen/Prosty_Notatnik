@@ -27,7 +27,7 @@ const NoteInput = ({
       {isActive ? (
         <form
           onSubmit={handlePostIt}
-          className="flex flex-col gap-6 border-2 border-solid blue-border h-[56vh] w-[80vw]  sm:w-[60vw] lg:w-[40vw]"
+          className="flex flex-col gap-6 border-2 border-solid blue-border   w-[80vw]  sm:w-[60vw] lg:w-[40vw] "
         >
           <input
             name="noteTitle"
@@ -56,7 +56,7 @@ const NoteInput = ({
       ) : (
         <form
           onFocus={() => setIsActive(true)}
-          className=" border-2 border-solid blue-border h-[10vh]  w-[80vw]  sm:w-[60vw] lg:w-[40vw]"
+          className=" border-2  blue-border   w-[80vw]  sm:w-[60vw] lg:w-[40vw]"
         >
           <input
             name="noteTitle"

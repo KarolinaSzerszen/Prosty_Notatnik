@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Register = ({ onClose }) => {
+const Register = ({ onClose, setShowRegister }) => {
   const [nip, setNip] = useState("");
   const [form, setForm] = useState({
     name: "",
@@ -97,6 +97,7 @@ const Register = ({ onClose }) => {
     </div>
   ) : (
     <div className="bg-white border-2 border-solid blue-border w-[90vw]  sm:w-[70vw] lg:w-[60vw] absolute top-[16%] left-[4%] sm:left-[12%] lg:left-[20%] z-20  pb-10">
+      <span onClick={() => setShowRegister(false)}>X</span>
       <form
         className="grid grid-cols-3  gap-4  m-10 mt-16 gap-y-10"
         onSubmit={handleSubmit}

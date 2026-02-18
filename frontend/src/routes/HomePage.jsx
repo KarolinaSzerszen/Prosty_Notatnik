@@ -49,7 +49,7 @@ const HomePage = () => {
   }, [token]);
 
   return (
-    <div className="flex flex-col justify-center items-center mt-28 h-fit ">
+    <div className="flex flex-col justify-center items-center mt-28 h-fit">
       <Navbar />
       <NoteInput
         title={title}
@@ -60,7 +60,9 @@ const HomePage = () => {
         isActive={isActive}
         setIsActive={setIsActive}
       />
-      <NoteList notes={notes} setNotes={setNotes} />
+      <div className="dotted-background  ">
+        <NoteList notes={notes} setNotes={setNotes} />
+      </div>
     </div>
   );
 };

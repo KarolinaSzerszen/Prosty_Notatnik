@@ -17,3 +17,13 @@
 .font-dark-blue {
   color: rgb(60, 83, 117);
 }
+
+.dotted-background {
+  background-image: url("./assets/dotted-bg-white.png");
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  margin-top: 14vh;
+  width: 100%;
+  min-height: 73vh;
+  height: 100%;
+}

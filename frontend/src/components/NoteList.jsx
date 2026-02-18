@@ -37,11 +37,11 @@ const NoteList = ({ notes, setNotes }) => {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row flex-wrap gap-8 mt-40 ">
+    <div className="flex flex-row lg:flex-row  gap-8 mt-20 flex-wrap justify-evenly">
       {notes.map((note) => (
         <div
           key={note.id}
-          className="my-2 min-w-60 w-[80vw] sm:w-[60vw] lg:w-[20vw] h-[24vh] p-6 border border-solid blue-border hover:shadow-lg "
+          className="my-2 min-w-60 w-[80vw] sm:w-[60vw] lg:w-[20vw] h-[24vh] p-6 border-2 border-solid blue-border bg-white hover:shadow-lg "
           onClick={() => setSelectedNote(note)}
           ref={formRef}
         >

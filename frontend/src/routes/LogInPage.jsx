@@ -93,7 +93,12 @@ const LogInPage = () => {
           </span>
         </h2>
       </div>
-      {showRegister && <Register onClose={() => setShowRegister(false)} />}
+      {showRegister && (
+        <Register
+          setShowRegister={setShowRegister}
+          onClose={() => setShowRegister(false)}
+        />
+      )}
     </div>
   );
 };
