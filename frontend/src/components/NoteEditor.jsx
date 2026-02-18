@@ -43,8 +43,8 @@ const NoteEditor = ({ note, onClose, onUpdate, onDelete }) => {
   }
 
   return (
-    <div className="min-h-[60vh] h-fit  border-2 border-solid blue-border bg-white absolute lg:left-[25%] top-[12%]  w-[80vw]  sm:w-[60vw] lg:w-[50vw]">
-      <div className="flex  flex-row justify-around mt-4">
+    <div className="min-h-[60vh] h-fit  border-2 border-solid blue-border bg-white fixed lg:left-[25%] top-[12%]  w-[80vw]  sm:w-[60vw] lg:w-[50vw]">
+      <div className="flex  flex-row justify-between pr-8  pl-8 mt-4">
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-8">
           <p>Created: {new Date(note.created_at).toLocaleString()}</p>
           {note.updated_at && (
