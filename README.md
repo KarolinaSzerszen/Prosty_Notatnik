@@ -21,13 +21,15 @@ cd backend
 
 python -m venv venv
 
-source venv/Scripts/activate 
+source venv/Scripts/activate (on Windows)
+souce venv/bin/activate (on Mac and Linux)
 
 pip install -r requirements.txt
 
 python manage.py migrate
 
 python manage.py runserver
+
 
 ---Frontend setup:
 
