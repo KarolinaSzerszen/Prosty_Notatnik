@@ -1,6 +1,8 @@
-const ConfirmDelete = ({ onConfirm, onCancel }) => {
+const ConfirmDelete = ({ onConfirm, onCancel, left, top }) => {
   return (
-    <div className="bg-white border-2 border-solid blue-border w-80 h-44 absolute top-40 left-[38%] z-20">
+    <div
+      className={`bg-white border-2 border-solid blue-border w-80 h-44 absolute ${top} ${left} z-20`}
+    >
       <div className="p-6 flex flex-col gap-4">
         <h1>Are you sure?</h1>
         <p>This action cannot be undone</p>

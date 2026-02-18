@@ -1,6 +1,10 @@
 ---Prosty Notatnik - Company Notes App##
 
 ---
+<<<<<<< HEAD
+=======
+
+>>>>>>> e3eee46 (Save local changes before pull)
 Built with:
 
 Backend - Django
@@ -9,7 +13,10 @@ Frontend - React (Vite)
 
 Database - SQLite
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e3eee46 (Save local changes before pull)
 ---Setup instructions:
 
 git clone https://github.com/KarolinaSzerszen/Prosty_Notatnik.git
@@ -30,6 +37,7 @@ pip install -r requirements.txt
 python manage.py migrate
 
 python manage.py runserver
+<<<<<<< HEAD
 
 
 ---Frontend setup:
@@ -39,3 +47,5 @@ cd fronted
 npm install
 
 npm run dev
+=======
+>>>>>>> e3eee46 (Save local changes before pull)

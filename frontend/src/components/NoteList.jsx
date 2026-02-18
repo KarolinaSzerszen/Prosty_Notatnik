@@ -37,7 +37,7 @@ const NoteList = ({ notes, setNotes }) => {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row flex-wrap gap-8 mt-40 lg:ml-[6%]">
+    <div className="flex flex-col lg:flex-row flex-wrap gap-8 mt-40 ">
       {notes.map((note) => (
         <div
           key={note.id}

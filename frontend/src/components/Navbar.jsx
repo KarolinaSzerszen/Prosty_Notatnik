@@ -55,6 +55,8 @@ const Navbar = () => {
       )}
       {toDelete && (
         <ConfirmDelete
+          left="left-[42%]"
+          top="top-[25vh]"
           onConfirm={handleDelete}
           onCancel={() => setToDelete(false)}
         />

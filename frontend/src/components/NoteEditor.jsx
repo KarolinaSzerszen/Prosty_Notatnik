@@ -43,7 +43,7 @@ const NoteEditor = ({ note, onClose, onUpdate, onDelete }) => {
   }
 
   return (
-    <div className="min-h-[60vh] h-fit  border-2 border-solid blue-border bg-white absolute lg:left-[26%] top-[12%]  w-[80vw]  sm:w-[60vw] lg:w-[50vw]">
+    <div className="min-h-[60vh] h-fit  border-2 border-solid blue-border bg-white absolute lg:left-[25%] top-[12%]  w-[80vw]  sm:w-[60vw] lg:w-[50vw]">
       <div className="flex  flex-row justify-around mt-4">
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-8">
           <p>Created: {new Date(note.created_at).toLocaleString()}</p>
@@ -89,6 +89,8 @@ const NoteEditor = ({ note, onClose, onUpdate, onDelete }) => {
       </div>
       {toDelete && (
         <ConfirmDelete
+          top="top-[13vh]"
+          left="left-[32%]"
           onConfirm={handleDelete}
           onCancel={() => setToDelete(false)}
         />

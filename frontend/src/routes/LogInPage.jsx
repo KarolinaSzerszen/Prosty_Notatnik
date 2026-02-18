@@ -41,12 +41,20 @@ const LogInPage = () => {
   return (
     <div className="flex flex-col sm:flex-row min-w-full h-[100vh] m-0 p-0">
       <div className="blue-background ] w-[100%] sm:w-[50%] h-fill text-white flex flex-col justify-center items-center pb-16 sm:pb-0">
-        <h1 className="text-4xl font-semibold mb-10 mt-10 sm:mt-0">NoteBox</h1>
-        <img src={logo} alt="sticky note logo" className="w-48 mb-10" />
-        <h2 className="text-2xl">Perfect place to store your notes</h2>
+        <h1 className="text-4xl font-semibold mb-10 mt-10 sm:mt-0 select-none">
+          NoteBox
+        </h1>
+        <img
+          src={logo}
+          alt="sticky note logo"
+          className="w-48 mb-10 select-none "
+        />
+        <h2 className="text-2xl select-none">
+          Perfect place to store your notes
+        </h2>
       </div>
       <div className="w-[100%] sm:w-[50%] flex flex-col justify-center items-center mt-14 sm:mt-0">
-        <h2 className="blue-font text-2xl font-semibold">
+        <h2 className="blue-font text-2xl font-semibold select-none">
           Log in to acces your notes
         </h2>
 
@@ -55,19 +63,19 @@ const LogInPage = () => {
           className="flex flex-col m-10 gap-8 w-[50%]"
         >
           <input
-            className="border-2 border-solid blue-border h-8"
+            className="border-2 border-solid blue-border h-8 pl-2"
             type="text"
             onChange={(e) => setUsername(e.target.value)}
-            placeholder="Name"
+            placeholder="Username"
           />
           <input
-            className="w-[100%] border-2 border-solid blue-border h-8"
+            className="w-[100%] border-2 border-solid blue-border h-8 pl-2"
             placeholder="Password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
-            className="w-[40%]  self-center blue-background text-white font-semibold h-8"
+            className="w-[40%]  self-center blue-background text-white font-semibold h-8 select-none"
             type="submit"
           >
             Login
@@ -75,10 +83,10 @@ const LogInPage = () => {
           <p>{message}</p>
         </form>
 
-        <h2 className="blue-font mb-10 sm:mb-0">
+        <h2 className="blue-font mb-10 sm:mb-0 select-none">
           Don't have an account yet? Make one now!{" "}
           <span
-            className="cursor-pointer font-dark-blue underline"
+            className="cursor-pointer font-dark-blue underline select-none"
             onClick={() => setShowRegister(true)}
           >
             Register
