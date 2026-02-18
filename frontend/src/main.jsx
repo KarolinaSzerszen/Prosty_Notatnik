@@ -9,12 +9,15 @@ import HomePage from "./routes/HomePage.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
+import axios from "axios";
+
+//axios.defaults.withCredentials = true;
 
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
-    element: <MainLayout />,
+    //element: <MainLayout />,
     children: [
       {
         path: "/",
@@ -28,6 +31,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+
       //{
       //  path: "/notes",
       //  element: <Homepage />,

@@ -25,6 +25,8 @@ const LogInPage = () => {
       setMessage(res.data.message);
       login(res.data.access);
       if (res.status === 200) {
+        console.log(username);
+
         navigate("/HomePage");
       }
     } catch (err) {
@@ -37,13 +39,13 @@ const LogInPage = () => {
   }
 
   return (
-    <div className="flex flex-row min-w-full h-[100vh] m-0 p-0">
-      <div className="blue-background w-[50%] h-fill text-white flex flex-col justify-center items-center">
-        <h1 className="text-4xl font-semibold mb-10">NoteBox</h1>
+    <div className="flex flex-col sm:flex-row min-w-full h-[100vh] m-0 p-0">
+      <div className="blue-background ] w-[100%] sm:w-[50%] h-fill text-white flex flex-col justify-center items-center pb-16 sm:pb-0">
+        <h1 className="text-4xl font-semibold mb-10 mt-10 sm:mt-0">NoteBox</h1>
         <img src={logo} alt="sticky note logo" className="w-48 mb-10" />
         <h2 className="text-2xl">Perfect place to store your notes</h2>
       </div>
-      <div className="w-[50%] flex flex-col justify-center items-center">
+      <div className="w-[100%] sm:w-[50%] flex flex-col justify-center items-center mt-14 sm:mt-0">
         <h2 className="blue-font text-2xl font-semibold">
           Log in to acces your notes
         </h2>
@@ -73,7 +75,7 @@ const LogInPage = () => {
           <p>{message}</p>
         </form>
 
-        <h2 className="blue-font">
+        <h2 className="blue-font mb-10 sm:mb-0">
           Don't have an account yet? Make one now!{" "}
           <span
             className="cursor-pointer font-dark-blue underline"

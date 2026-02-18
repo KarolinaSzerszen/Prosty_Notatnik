@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import NoteList from "../components/NoteList";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 const HomePage = () => {
   const [title, setTitle] = useState("");
@@ -49,6 +50,7 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col justify-center items-center mt-28 h-fit ">
+      <Navbar />
       <NoteInput
         title={title}
         setTitle={setTitle}

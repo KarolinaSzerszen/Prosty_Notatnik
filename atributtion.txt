@@ -4,3 +4,9 @@ sticky_note_ikon:
 x icons<a href="https://www.flaticon.com/free-icons/cross" title="cross icons">Cross icons created by riajulislam - Flaticon</a>
 
 python manage.py runserver
+
+settings icon:
+<a href="https://www.flaticon.com/free-icons/settings" title="settings icons">Settings icons created by Pixel perfect - Flaticon</a>
+
+trashcan:
+<a href="https://www.flaticon.com/free-icons/trash-can" title="trash can icons">Trash can icons created by Uut Eva Ariani - Flaticon</a>

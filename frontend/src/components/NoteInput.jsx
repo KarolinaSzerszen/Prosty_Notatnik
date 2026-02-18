@@ -27,19 +27,20 @@ const NoteInput = ({
       {isActive ? (
         <form
           onSubmit={handlePostIt}
-          className="flex flex-col gap-6 border-2 border-solid blue-border h-[56vh] w-[40vw]  "
+          className="flex flex-col gap-6 border-2 border-solid blue-border h-[56vh] w-[80vw]  sm:w-[60vw] lg:w-[40vw]"
         >
           <input
             name="noteTitle"
-            className="m-4 h-8 mt-4"
+            className="m-3 h-8 ml-3 border-b-2 border-solid blue-border pl-3 pb-1"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Title"
+            autocomplete="off"
           />
           <textarea
             name="noteContent"
-            className="m-4 h-40 resize-none"
+            className="m-4 h-40 resize-none border border-solid blue-border p-3"
             placeholder="Note content"
             value={noteContent}
             type="text"
@@ -55,11 +56,11 @@ const NoteInput = ({
       ) : (
         <form
           onFocus={() => setIsActive(true)}
-          className=" border-2 border-solid blue-border h-[10vh] w-[40vw] "
+          className=" border-2 border-solid blue-border h-[10vh]  w-[80vw]  sm:w-[60vw] lg:w-[40vw]"
         >
           <input
             name="noteTitle"
-            className="m-4 h-8 mt-4 w-[94%]"
+            className="m-2 ml-3 h-8  w-[94%] border-b-2 border-solid blue-border pl-3"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}

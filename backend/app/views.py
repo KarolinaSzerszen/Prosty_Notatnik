@@ -10,8 +10,12 @@ from .serializers import RegisterSerializer
 from rest_framework.views import APIView
 from django.db import IntegrityError
 from .models import Note
-from rest_framework.permissions import IsAuthenticated
-from .serializers import NoteSerializer
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from .serializers import NoteSerializer, UserSerializer
+from rest_framework.permissions import IsAdminUser
+from rest_framework_simplejwt.tokens import RefreshToken
+from app.models import User
+from django.contrib.auth import get_user_model
 
 
 
@@ -35,7 +39,9 @@ def hello(request):
 #        return Response({"message":"Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
     
 
+
 @api_view(['GET'])
+@permission_classes([AllowAny])
 def nip_lookup(request):
     nip = request.query_params.get('nip')
 
@@ -67,7 +73,7 @@ def nip_lookup(request):
         "nip": subject.get("nip")
     })
 
-
+@permission_classes([AllowAny])
 class RegisterView(APIView):
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
@@ -107,16 +113,50 @@ def add_note(request):
     return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['PUT']) 
+@api_view(['PUT', 'DELETE']) 
 @permission_classes([IsAuthenticated])
-def update_note(request, note_id):
+def note_detail(request, note_id):
     try:
         note = Note.objects.get(id=note_id, user=request.user)
     except Note.DoesNotExist:
         return Response({"error": "Note not found"}, status=status.HTTP_404_NOT_FOUND)
     
-    serializer = NoteSerializer(note, data=request.data, partial=True)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == "PUT":
+
+        serializer = NoteSerializer(note, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == "DELETE":
+        note.delete()
+        return Response({"message": "Deleted"}, status=status.HTTP_200_OK)
+
+
+
+
+
+
+User = get_user_model()
+
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def list_users(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many= True)
+    return Response(UserSerializer(users, many=True).data)
+
+
+User = get_user_model()
+
+class DeleteOwnAccountView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request):
+        user = request.user
+        username = user.username
+        user.delete()
+        return Response(
+            {"message": f"User {username} deleted successfully"}, status=status.HTTP_200_OK
+
+        )

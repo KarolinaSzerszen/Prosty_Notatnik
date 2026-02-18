@@ -23,26 +23,34 @@ const NoteList = ({ notes, setNotes }) => {
   }, []);
 
   function handleUpdate(updatedNote) {
-    setNotes((prev) =>
-      prev.map((note) => (note.id === updatedNote.id ? updatedNote : note)),
-    );
+    if (updatedNote.deleted) {
+      setNotes((prev) => prev.filter((note) => note.id !== updatedNote.id));
+    } else {
+      setNotes((prev) =>
+        prev.map((note) => (note.id === updatedNote.id ? updatedNote : note)),
+      );
+    }
+  }
+
+  function handleDelete(deletedId) {
+    setNotes((prev) => prev.filter((note) => note.id !== deletedId));
   }
 
   return (
-    <div className="flex flex-row flex-wrap gap-8 mt-40 ml-[6%]">
+    <div className="flex flex-col lg:flex-row flex-wrap gap-8 mt-40 lg:ml-[6%]">
       {notes.map((note) => (
         <div
           key={note.id}
-          className="border my-2 min-w-60 w-[20vw] h-[22vh] p-6 "
+          className="my-2 min-w-60 w-[80vw] sm:w-[60vw] lg:w-[20vw] h-[24vh] p-6 border border-solid blue-border hover:shadow-lg "
           onClick={() => setSelectedNote(note)}
           ref={formRef}
         >
-          <h3>{note.title}</h3>
-          <p className="h-fit text-wrap w-full break-words ">
+          <h2 className="text-base  xl:text-xl mb-2">{note.title}</h2>
+          <p className="h-fit text-wrap w-full break-words text-gray-700 text-sm">
             {expanded
               ? note.content
-              : note.content.length > previewLength
-                ? note.content.substring(0, previewLength) + "..."
+              : note.content?.length > previewLength
+                ? note.content?.substring(0, previewLength) + "..."
                 : note.content}
           </p>
         </div>
@@ -52,6 +60,7 @@ const NoteList = ({ notes, setNotes }) => {
           note={selectedNote}
           onClose={() => setSelectedNote(null)}
           onUpdate={handleUpdate}
+          onDelete={handleDelete}
         />
       )}
     </div>

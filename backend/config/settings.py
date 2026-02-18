@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'loginas'
 ]
 
 MIDDLEWARE = [
@@ -146,9 +147,15 @@ REST_FRAMEWORK = {
        
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-}
+    'DEFAULT_PERMISSION_CLASSES':(
+        'rest_framework.permissions.IsAuthenticated'
+    )}
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
+
+CSRF_TRUSTED_ORIGINS =[
+    "http://localhost:5173",
+]
