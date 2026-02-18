@@ -1,6 +1,7 @@
 ---Prosty Notatnik - Company Notes App##
 
----Built with:
+---
+Built with:
 
 Backend - Django
 
